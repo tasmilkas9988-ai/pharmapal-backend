@@ -1,0 +1,144 @@
+{
+  "medications": [
+    {
+      "name_en": "Panadol Extra",
+      "name_ar": "بانادول إكسترا",
+      "active_ingredient": "Paracetamol + Caffeine",
+      "strength": "500mg/65mg",
+      "price_sar": 12.50,
+      "package_size": "20 tablets",
+      "availability": "متوفر في معظم الصيدليات"
+    },
+    {
+      "name_en": "Panadol",
+      "name_ar": "بانادول",
+      "active_ingredient": "Paracetamol",
+      "strength": "500mg",
+      "price_sar": 9.75,
+      "package_size": "20 tablets",
+      "availability": "متوفر في جميع الصيدليات"
+    },
+    {
+      "name_en": "Ventolin Inhaler",
+      "name_ar": "فنتولين بخاخ",
+      "active_ingredient": "Salbutamol",
+      "strength": "100mcg",
+      "price_sar": 28.00,
+      "package_size": "200 doses",
+      "availability": "متوفر في الصيدليات"
+    },
+    {
+      "name_en": "Augmentin",
+      "name_ar": "أوجمنتين",
+      "active_ingredient": "Amoxicillin + Clavulanic Acid",
+      "strength": "625mg",
+      "price_sar": 42.50,
+      "package_size": "14 tablets",
+      "availability": "متوفر بوصفة طبية"
+    },
+    {
+      "name_en": "Polydexa",
+      "name_ar": "بوليديكسا",
+      "active_ingredient": "Dexamethasone + Neomycin + Polymyxin B + Phenylephrine",
+      "strength": "Multiple",
+      "price_sar": 35.00,
+      "package_size": "15ml nasal spray",
+      "availability": "متوفر في الصيدليات"
+    },
+    {
+      "name_en": "Sinusephrin",
+      "name_ar": "سينوسيفرين",
+      "active_ingredient": "Xylometazoline",
+      "strength": "0.1%",
+      "price_sar": 18.50,
+      "package_size": "10ml nasal spray",
+      "availability": "متوفر في الصيدليات"
+    },
+    {
+      "name_en": "Brufen",
+      "name_ar": "بروفين",
+      "active_ingredient": "Ibuprofen",
+      "strength": "400mg",
+      "price_sar": 14.25,
+      "package_size": "20 tablets",
+      "availability": "متوفر في جميع الصيدليات"
+    },
+    {
+      "name_en": "Voltaren",
+      "name_ar": "فولتارين",
+      "active_ingredient": "Diclofenac",
+      "strength": "50mg",
+      "price_sar": 16.50,
+      "package_size": "20 tablets",
+      "availability": "متوفر بوصفة طبية"
+    },
+    {
+      "name_en": "Omeprazole",
+      "name_ar": "أوميبرازول",
+      "active_ingredient": "Omeprazole",
+      "strength": "20mg",
+      "price_sar": 22.00,
+      "package_size": "28 capsules",
+      "availability": "متوفر بوصفة طبية"
+    },
+    {
+      "name_en": "Aspirin",
+      "name_ar": "أسبرين",
+      "active_ingredient": "Acetylsalicylic Acid",
+      "strength": "100mg",
+      "price_sar": 8.50,
+      "package_size": "30 tablets",
+      "availability": "متوفر في جميع الصيدليات"
+    },
+    {
+      "name_en": "Lipitor",
+      "name_ar": "ليبيتور",
+      "active_ingredient": "Atorvastatin",
+      "strength": "20mg",
+      "price_sar": 85.00,
+      "package_size": "30 tablets",
+      "availability": "متوفر بوصفة طبية"
+    },
+    {
+      "name_en": "Metformin",
+      "name_ar": "ميتفورمين",
+      "active_ingredient": "Metformin",
+      "strength": "500mg",
+      "price_sar": 18.00,
+      "package_size": "60 tablets",
+      "availability": "متوفر بوصفة طبية"
+    },
+    {
+      "name_en": "Zantac",
+      "name_ar": "زانتاك",
+      "active_ingredient": "Ranitidine",
+      "strength": "150mg",
+      "price_sar": 24.50,
+      "package_size": "20 tablets",
+      "availability": "متوفر في الصيدليات"
+    },
+    {
+      "name_en": "Claritin",
+      "name_ar": "كلاريتين",
+      "active_ingredient": "Loratadine",
+      "strength": "10mg",
+      "price_sar": 32.00,
+      "package_size": "20 tablets",
+      "availability": "متوفر في الصيدليات"
+    },
+    {
+      "name_en": "Amoxicillin",
+      "name_ar": "أموكسيسيللين",
+      "active_ingredient": "Amoxicillin",
+      "strength": "500mg",
+      "price_sar": 28.00,
+      "package_size": "21 capsules",
+      "availability": "متوفر بوصفة طبية"
+    }
+  ],
+  "metadata": {
+    "last_updated": "2025-01-15",
+    "source": "Mock SFDA Database",
+    "note": "الأسعار تقريبية وقد تختلف بين الصيدليات. للأسعار الدقيقة، يرجى زيارة الموقع الرسمي للهيئة السعودية للغذاء والدواء."
+  }
+}
