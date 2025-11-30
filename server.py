@@ -67,13 +67,14 @@ except Exception as e:
 # MongoDB connection
 mongo_url = os.environ.get("MONGO_URL")
 
-print("Loaded MONGO_URL:", mongo_url)
+print("Loaded MONGO_URL:", bool(mongo_url))  # ما يطبع بيانات السر
 
 if not mongo_url:
     raise Exception("❌ MONGO_URL is missing! Add it in Railway Variables.")
 
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ.get("DB_NAME", "pharmapal_db")]
+
 # JWT Secret - must be set in production
 JWT_SECRET = os.environ.get('JWT_SECRET')
 if not JWT_SECRET:
