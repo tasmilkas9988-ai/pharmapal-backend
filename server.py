@@ -65,7 +65,11 @@ except Exception as e:
     email_service = None
 
 # MongoDB connection
-mongo_url = os.environ.get('MONGO_URL', 'mongodb://localhost:27017')
+mongo_url = os.environ.get('MONGO_URL')
+print("🚀 Loaded MONGO_URL:", mongo_url)
+
+if not mongo_url:
+    raise Exception("❌ MONGO_URL is missing! Add it in Railway Variables.")
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ.get('DB_NAME', 'pharmapal_db')]
 
