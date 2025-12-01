@@ -26,7 +26,7 @@ import asyncio
 
 # Import Firebase for push notifications
 try:
-    from firebase_config import send_push_notification, send_batch_notifications
+    from firebase_config import send_push_notification
     FIREBASE_ENABLED = True
 except Exception as e:
     print(f"⚠️ Firebase not available: {e}")
@@ -4225,12 +4225,7 @@ async def broadcast_notification(
                 fcm_tokens = [t["token"] for t in tokens if t.get("token")]
                 
                 if fcm_tokens:
-                    await send_batch_notifications(
-                        tokens=fcm_tokens,
-                        title=title,
-                        body=body,
-                        data={"type": notification_type}
-                    )
+                    # batch notifications removed
             except Exception as e:
                 logger.warning(f"Failed to send push notifications: {e}")
         
