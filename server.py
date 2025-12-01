@@ -4231,7 +4231,7 @@ async def broadcast_notification(
                 fcm_tokens = [t["token"] for t in tokens if t.get("token")]
                 
                 if fcm_tokens:
-                    await send_batch_notifications(
+                    # TODO: batch notifications removed(
                         tokens=fcm_tokens,
                         title=title,
                         body=body,

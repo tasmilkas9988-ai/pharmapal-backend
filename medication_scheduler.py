@@ -12,7 +12,7 @@ import os
 
 # Import Firebase functions
 try:
-    from firebase_config import send_push_notification, send_batch_notifications
+    from firebase_config import send_push_notification
     FIREBASE_ENABLED = True
 except Exception as e:
     print(f"⚠️ Firebase not available: {e}")
