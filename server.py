@@ -4225,7 +4225,7 @@ async def broadcast_notification(
                 fcm_tokens = [t["token"] for t in tokens if t.get("token")]
                 
                 if fcm_tokens:
-                    # batch notifications removed
+                    pass
             except Exception as e:
                 logger.warning(f"Failed to send push notifications: {e}")
         
