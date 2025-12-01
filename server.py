@@ -4223,29 +4223,35 @@ async def broadcast_notification(
             await db.notifications.insert_many(notifications)
         
         # If Firebase is enabled, send push notifications
-        if FIREBASE_ENABLED:
+       if FIREBASE_ENABLED:
             try:
                 # Get all FCM tokens
                 tokens_cursor = db.fcm_tokens.find({}, {"token": 1, "_id": 0})
                 tokens = await tokens_cursor.to_list(length=None)
                 fcm_tokens = [t["token"] for t in tokens if t.get("token")]
-                
+
                 if fcm_tokens:
-                    # TODO: batch notifications removed(
-                        tokens=fcm_tokens,
+                    # Send one-by-one notifications (batch removed)
+                    try:
+                        for token in fcm_tokens:
+                        await send_push_notification(
+                        token=token,
                         title=title,
                         body=body,
                         data={"type": notification_type}
-                    )
-            except Exception as e:
-                logger.warning(f"Failed to send push notifications: {e}")
-        
+                        )
+                    except Exception as e:
+                        logger.warning(f"Failed to send push notifications: {e}")
+
+                except Exception as e:
+                    logger.warning(f"Firebase error: {e}")
+
         return {
             "success": True,
             "message": f"Notification sent to {len(notifications)} users",
             "count": len(notifications)
         }
-        
+                
     except HTTPException:
         raise
     except Exception as e:
