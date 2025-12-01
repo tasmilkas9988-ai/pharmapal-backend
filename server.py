@@ -26,7 +26,7 @@ import asyncio
 
 # Import Firebase for push notifications
 try:
-    from firebase_config import send_push_notification
+    from firebase_config import send_push_notification, send_batch_notifications
     FIREBASE_ENABLED = True
 except Exception as e:
     print(f"⚠️ Firebase not available: {e}")
@@ -65,15 +65,9 @@ except Exception as e:
     email_service = None
 
 # MongoDB connection
-mongo_url = os.environ.get("MONGO_URL")
-
-print("Loaded MONGO_URL:", bool(mongo_url))  # ما يطبع بيانات السر
-
-if not mongo_url:
-    raise Exception("❌ MONGO_URL is missing! Add it in Railway Variables.")
-
+mongo_url = os.environ.get('MONGO_URL', 'mongodb://localhost:27017')
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ.get("DB_NAME", "pharmapal_db")]
+db = client[os.environ.get('DB_NAME', 'pharmapal_db')]
 
 # JWT Secret - must be set in production
 JWT_SECRET = os.environ.get('JWT_SECRET')
@@ -4223,35 +4217,29 @@ async def broadcast_notification(
             await db.notifications.insert_many(notifications)
         
         # If Firebase is enabled, send push notifications
-       if FIREBASE_ENABLED:
+        if FIREBASE_ENABLED:
             try:
                 # Get all FCM tokens
                 tokens_cursor = db.fcm_tokens.find({}, {"token": 1, "_id": 0})
                 tokens = await tokens_cursor.to_list(length=None)
                 fcm_tokens = [t["token"] for t in tokens if t.get("token")]
-
+                
                 if fcm_tokens:
-                    # Send one-by-one notifications (batch removed)
-                    try:
-                        for token in fcm_tokens:
-                        await send_push_notification(
-                        token=token,
+                    await send_batch_notifications(
+                        tokens=fcm_tokens,
                         title=title,
                         body=body,
                         data={"type": notification_type}
-                        )
-                    except Exception as e:
-                        logger.warning(f"Failed to send push notifications: {e}")
-
-                except Exception as e:
-                    logger.warning(f"Firebase error: {e}")
-
+                    )
+            except Exception as e:
+                logger.warning(f"Failed to send push notifications: {e}")
+        
         return {
             "success": True,
             "message": f"Notification sent to {len(notifications)} users",
             "count": len(notifications)
         }
-                
+        
     except HTTPException:
         raise
     except Exception as e:
